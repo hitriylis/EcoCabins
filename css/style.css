@@ -89,6 +89,7 @@ body {
 
 .title {
   font-family: var(--second-family);
+  font-weight: 900;
   font-size: 30px;
   line-height: 130%;
   color: var(--greys---white);
@@ -96,6 +97,10 @@ body {
 
 .title--dark {
   color: var(--color---dark-green);
+}
+
+.text {
+  font-size: 14px;
 }
 
 /* header page styles */
@@ -240,41 +245,52 @@ body {
   flex-shrink: 0;
 }
 
-/* .page__materials {
-}
 .materials {
-} */
+  position: relative;
+  z-index: 40;
+}
 
 .materials__container {
+  position: relative;
+  padding-bottom: 20px;
+  z-index: 30;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 50% minmax(280px, 325px);
+  justify-content: space-between;
+  align-items: start;
   gap: 20px;
+  min-width: 0;
 }
 
-/* .materials__content {
+.materials__content {
+  padding-top: 25px;
+  display: grid;
+  gap: 13px;
 }
-.materials__title {
-}
+
 .materials__text {
+  line-height: 185%;
 }
+
 .materials__more {
-} */
+  width: 90px;
+  height: 34px;
+  padding: 10px 14px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid var(--greys---light-grey);
+  border-radius: 4px;
+}
 
 .materials__slider {
   position: relative;
-  max-width: 325px;
-  justify-self: end;
+  transform: translateY(-20.765027%); /* -76/366 */
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
-
-/* .slider-materials {
-}
-
-.slider-materials__wrapper {
-} */
 
 .slider-materials__slide {
-  width: 325px;
-  height: 366px;
+  aspect-ratio: 325 / 366;
   position: relative;
 }
 
@@ -315,6 +331,43 @@ body {
 }
 
 /* media */
+@media screen and (min-width: 767.98px) {
+  .materials::before {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 60%;
+    background-color: var(--greys---white);
+    transform: translateY(-95%);
+    content: "";
+  }
+
+  .materials::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 140px;
+    width: 40%; /* 383/1000 */
+    background-color: var(--color---dark-green);
+    content: "";
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .materials__container {
+    grid-template-columns: auto;
+  }
+
+  .materials__slider {
+    transform: translateY(0);
+  }
+}
 
 @media screen and (max-width: 700px) {
   .main-section__container {
